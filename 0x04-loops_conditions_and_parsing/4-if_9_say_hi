@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# prints ten lines of same text except for the ninth line which is different
+
+x=1
+while [ $x -le 10 ]
+do
+    if [ $x -eq 9 ]
+    then
+	echo "Hi"
+    else
+	echo "Best School"
+    fi
+    
+x=$((x + 1))  
+done
