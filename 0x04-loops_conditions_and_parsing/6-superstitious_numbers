@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #Script prints different messages on iterations using while and case
 
-count=0
+count=1
 
 while [ $count -lt 20 ]
 do
