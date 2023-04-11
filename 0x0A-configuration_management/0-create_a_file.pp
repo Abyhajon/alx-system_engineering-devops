@@ -1,3 +1,5 @@
+# A Ppuppet script that creates a file in /tmp/school
+
 file { '/tmp/school':
   ensure  => file,
   mode    => '0744',
