@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-# configuration file to  stop password authentication
-
-IdentifyFile ~/.ssh/id_school
-PasswordAuthentication no
