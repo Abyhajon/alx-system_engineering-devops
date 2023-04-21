@@ -10,11 +10,10 @@ file_line { 'SSH Private Key':
 }
 
 file { 'passwd auth no':
-	ensure 				=> present,
-	path 				=> '/etc/ssh/ssh_config',
-	line				=> '	PasswordAuthentication no',
-	match				=> '^[#]+[\s]*(?i)PasswordAuthentication[\s]+(yes|no)$',
-	replace				=> true,
+	path			=> '/etc/ssh/ssh_config',
+	line			=> '	PasswordAuthentication no',
+	match			=> '^[#]+[\s]*(?i)PasswordAuthentication[\s]+(yes|no)$',
+	replace			=> true,
 	append_on_no_match 	=> true
 }
 
