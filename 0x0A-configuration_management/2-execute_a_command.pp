@@ -1,7 +1,7 @@
 #puppet manuscript to kill a process.
 
 exec { 'pkill':
-  command => 'usr/bin/pkill killmenow',
-  onlyif  => 'usr/bin/pgrep killmenow',
+  command  => 'pkill killmenow',
+  provider => 'shell',
 }
 
