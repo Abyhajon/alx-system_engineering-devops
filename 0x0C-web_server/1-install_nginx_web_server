@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Script installs nginx and configures it to certain requirements.
+# Update package list and Install nginx
+sudo apt-get update
+sudo apt-get -y install nginx
+
+echo "Hello World!" > /var/www/html/index.nginx-debian.html
+
+# Reload nginx configuration
+nginx -s reload
