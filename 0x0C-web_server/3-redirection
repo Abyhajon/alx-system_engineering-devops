@@ -6,6 +6,6 @@ sudo ufw allow 'Nginx HTTP'
 echo "Hello World" | sudo tee /var/www/html/index.nginx-debian.html
 sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/default.backup
 
-sudo sed -i '/^\s*location \/ {$/,/^\s*}/ s/^\s*}/\    return 301 https:\/\/gogoanime.cl/category/one-piece;\n}/' /etc/nginx/sites-available/default
+sudo sed -i '/^\s*location \/ {$/,/^\s*}/ s/^\s*}/\    if (\$request_filename ~ redirect_me){\n\trewrite ^ https://gogoanime.cl/category/one-piece permanent;\n}/' /etc/nginx/sites-available/default
 
 sudo service nginx reload
