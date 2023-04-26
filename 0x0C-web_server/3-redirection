@@ -1,31 +1,8 @@
-#!/usr/bin/env bash
-#install ngix and have a file that returns the string "Hello World inside
+udo apt-get -y update
+sudo apt-get -y install -y nginx
+sudo ufw allow 'Nginx HTTP'
+echo "Hello World" | sudo tee /var/www/html/index.nginx-debian.html
 
-sudo apt-get update
-sudo apt-get install nginx -y
-echo "Hello World!" | sudo tee /usr/share/nginx/html/index.html
+sudo sed -i '/^\s*location \/ {$/,/^\s*}/ s/^\s*}/\    return 301 https:\/\/gogoanime.cl/category/one-piece;\n}/' /etc/nginx/sites-available/default
 
-new_config=\
-"server {
-        listen 80 default_server;
-        listen [::]:80 default_server;
-               root /var/www/html;
-        index index.html index.htm index.nginx-debian.html;
-        server_name _;
-        location / {
-                try_files \$uri \$uri/ =404;
-        }
-        
-        if (\$request_filename ~ redirect_me){
-            rewrite ^ https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;
-        }
-}
-"
-
-echo "$new_config" > /etc/nginx/sites-available/default
-if [ "$(pgrep nginx)" -le 0 ];
-then
-    service nginx start
-else
-    service nginx restart
-fi;
+sudo service nginx reload
